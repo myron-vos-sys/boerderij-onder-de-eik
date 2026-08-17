@@ -6,7 +6,7 @@ export type OpenStatus = {
 };
 
 function minuten(tijd: string) {
-  const [u, m] = tijd.split(":").map(Number);
+  const [u = 0, m = 0] = tijd.split(":").map(Number);
   return u * 60 + m;
 }
 
