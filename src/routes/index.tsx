@@ -116,7 +116,7 @@ function HomePagina() {
       <Sectie toon="creme">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <Kop bovenkop="In de winkel">Wat er zoal ligt</Kop>
+            <Kop bovenkop="In de winkel">Ons aanbod</Kop>
             <ul className="mt-6 space-y-3">
               {home.assortimentKort.map((item) => (
                 <li key={item} className="flex gap-3 text-stam-700">
