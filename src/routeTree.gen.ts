@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoerderijwinkelRouteImport } from './routes/boerderijwinkel'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DierenRouteImport } from './routes/dieren'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as ZorgboerderijRouteImport } from './routes/zorgboerderij'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoerderijwinkelRoute = BoerderijwinkelRouteImport.update({
+  id: '/boerderijwinkel',
+  path: '/boerderijwinkel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DierenRoute = DierenRouteImport.update({
+  id: '/dieren',
+  path: '/dieren',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZorgboerderijRoute = ZorgboerderijRouteImport.update({
+  id: '/zorgboerderij',
+  path: '/zorgboerderij',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boerderijwinkel': typeof BoerderijwinkelRoute
+  '/contact': typeof ContactRoute
+  '/dieren': typeof DierenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/zorgboerderij': typeof ZorgboerderijRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boerderijwinkel': typeof BoerderijwinkelRoute
+  '/contact': typeof ContactRoute
+  '/dieren': typeof DierenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/zorgboerderij': typeof ZorgboerderijRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boerderijwinkel': typeof BoerderijwinkelRoute
+  '/contact': typeof ContactRoute
+  '/dieren': typeof DierenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/zorgboerderij': typeof ZorgboerderijRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/boerderijwinkel'
+    | '/contact'
+    | '/dieren'
+    | '/over-ons'
+    | '/zorgboerderij'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/boerderijwinkel'
+    | '/contact'
+    | '/dieren'
+    | '/over-ons'
+    | '/zorgboerderij'
+  id:
+    | '__root__'
+    | '/'
+    | '/boerderijwinkel'
+    | '/contact'
+    | '/dieren'
+    | '/over-ons'
+    | '/zorgboerderij'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoerderijwinkelRoute: typeof BoerderijwinkelRoute
+  ContactRoute: typeof ContactRoute
+  DierenRoute: typeof DierenRoute
+  OverOnsRoute: typeof OverOnsRoute
+  ZorgboerderijRoute: typeof ZorgboerderijRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/boerderijwinkel': {
+      id: '/boerderijwinkel'
+      path: '/boerderijwinkel'
+      fullPath: '/boerderijwinkel'
+      preLoaderRoute: typeof BoerderijwinkelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dieren': {
+      id: '/dieren'
+      path: '/dieren'
+      fullPath: '/dieren'
+      preLoaderRoute: typeof DierenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zorgboerderij': {
+      id: '/zorgboerderij'
+      path: '/zorgboerderij'
+      fullPath: '/zorgboerderij'
+      preLoaderRoute: typeof ZorgboerderijRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoerderijwinkelRoute: BoerderijwinkelRoute,
+  ContactRoute: ContactRoute,
+  DierenRoute: DierenRoute,
+  OverOnsRoute: OverOnsRoute,
+  ZorgboerderijRoute: ZorgboerderijRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
